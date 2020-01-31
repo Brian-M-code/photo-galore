@@ -4,10 +4,12 @@ import datetime as dt
 
 # Create your views here.
 def welcome(request):
-    return HttpResponse('Welcome to the Photo Galore')
+    return render(request,'welcome.html')
 
 def photo_of_day(request):
     date = dt.date.today()
+    #function to convert date object to find exact day
+    day = convert_dates(date)
     html = f'''
         <html>
             <body>
