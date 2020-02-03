@@ -60,6 +60,10 @@ class Image(models.Model):
     location = models.ForeignKey(Location)
     image_description = models.ManyToManyField(Description)
     
+    
+    def search_by_category(cls,search_term):
+        image = cls.objects.filter(category__icontains=search_term)
+        return image
 
     
     
