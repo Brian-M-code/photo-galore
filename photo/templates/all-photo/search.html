@@ -15,9 +15,14 @@
 
   {% if image %}
     {% for image in images %}
-      <div class="col-sm-6 col-md-3">
-          <h1>{{image.name}}</h1>
-      </div>
+    <div class="col-md-3">
+        <div class="card">
+            <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: center"><a>{{ image.name}}</a></h4>
+            </div>
+        </div>
+    </div>
     {% endfor %}
   {% endif %}
   </div>
