@@ -24,3 +24,11 @@ class EditorTestClass(TestCase):
         editors = Editor.objects.all()
         self.assertTrue(len(editors) == 0)
         
+class CategoryTestClass(TestCase):
+    def setUp(self):
+        self.category.create
+    
+class LocationTestClass(TestCase):
+    
+class ImagesTestClass(TestCase):
+        
