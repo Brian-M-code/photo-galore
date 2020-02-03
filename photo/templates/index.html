@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{{block.super}}
+<link href="https://fonts.googleapis.com/css?family=Kalam&display=swap" rel="stylesheet">
+
+<h1 class="h"> Welcome to Photo Galore</h1>
+
+<div class="container-fluid">
+  {% for image in images %}
+  <div class="modal fade" id="basicExampleModal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel" style="font-family: 'Itim', cursive;">{{image.name}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" >
+                    <img class="card-img-top " style="height: 150px;" id="img" class="mode" src="{{image.image.url}}" alt="Card image cap">
+                    <p style="font-family: 'Itim', cursive; color: black;">Location: {{image.location}} <br> Category: {{image.category}} <br> Description: {{image.description}}</p>
+            </div>
+            <div class="modal-footer">
+                <input type="text" value="{{image.image.url}}"id={{image.id}}.url>
+                
+              <button type="button" class="btn btn-success" data-dismiss="modal" style="font-family: 'Itim', cursive;">Close</button>
+              </div> 
+            
+          </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-6">
+        <div class="card" style="width: 18rem;">
+            <img src="{{image.image.url}}" class="card-img-top" data-toggle="modal" data-target="#basicExampleModal{{image.id}}">
+            <div class="card-body">
+              <h5 class="card-title">{{ image.image.name }}</h5>
+              <!-- <a href="#" class="btn btn-primary">View image details</a> -->
+            </div>
+          </div>
+   
+      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">view</button><br> -->
+      <!-- Button trigger modal -->
+    </div>
+    {% endfor %}
+  </div>
+  
+</div>
+<p class='code'>Art is all about simplicity,creativity and innovation</p>
+{% endblock content %}
