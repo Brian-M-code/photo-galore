@@ -30,5 +30,5 @@ class CategoryTestClass(TestCase):
     
 class LocationTestClass(TestCase):
     
-class ImagesTestClass(TestCase):
+class ImageTestClass(TestCase):
         
