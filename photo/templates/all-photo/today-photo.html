@@ -1,6 +1,5 @@
-{%extends 'all-photo/base.html'%}
+{% extends 'all-news/base.html'%}
 
-{%extends 'all-news/base.html'%}
 {% block content %} 
 {{ block.super}}
 
@@ -16,7 +15,7 @@
     </div>
     <!--Display news Article images  -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <img src="{{photo.image_image.url}}" class="img-responsive" alt="Image">
+        <img src="{{photo.Image_image.url}}" class="img-responsive" alt="Image">
     </div>
 
   </div>
@@ -30,3 +29,4 @@
 </div>
 
 {% endblock %}
+
