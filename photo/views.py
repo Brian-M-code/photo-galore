@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
 import datetime as dt
-from .models import Image
+from .models import Image, Category
 
 # Create your views here.
-def welcome(request):
-    return render(request,'welcome.html')
-
+def index(request):
+    images = Image.objects.all()
+    categories = Category.get_all_categories()
+    return render (request, 'index.html', {"images":images, "categories":categories  })
 def photo_today(request):
     date = dt.date.today()
     # images = Image.get_images()
@@ -26,14 +27,14 @@ def convert_dates(dates):
 def search_results(request):
     
     if 'images' in request.GET and request.GET["image"]:
-        search_term = request.GET.get("category")
+        search_term = request.GET.get("image")
         searched_category = category.search_by_category(search_term)
         message = f"{search_term}"
 
         return render(request, 'all-photo/search.html',{"message":message,"category": searched_category})
 
     else:
-        message = "You haven't searched for any term"
+        message = "You haven't searched for any category"
         return render(request, 'all-photo/search.html',{"message":message})
     
 def image(request,image_id):

@@ -27,11 +27,22 @@ class Category(models.Model):
     def save_category(self):
         self.save()
         
-    def delete_category(self):
-        self.delete()
-     
+    @classmethod
+    def get_all_categories(cls):
+        category = cls.objects.all()
+        return category
+    
+    @classmethod
+    def find(cls,categ):
+        categs = cls.objects.filter(category__icontains=categ)
+        return category
+        
+    @classmethod
+    def delete_category(cls,category):
+        cls.objects.filter(category=category).delete()
+             
     def __str__(self):
-        return self.category_name
+        return self.category
     
 class Location(models.Model):
     location_name = models.CharField(max_length = 30)
@@ -47,14 +58,14 @@ class Location(models.Model):
     
      
     def __str__(self):
-        return self.location_name
+        return self.location
     
 class Description(models.Model):
     editor = models.ForeignKey(Editor)
-    image_description = models.CharField(max_length =30)
+    image_description = models.CharField(max_length =130)
     
 class Image(models.Model):
-    image = models.ImageField(upload_to = 'images')
+    image = models.ImageField(upload_to = 'images/')
     image_name = models.CharField(max_length =30)
     category = models.ForeignKey(Category) 
     editor = models.ForeignKey(Editor)
@@ -62,14 +73,22 @@ class Image(models.Model):
     image_description = models.ManyToManyField(Description)
     
     
-    def search_by_category(cls,search_term):
-        image = cls.objects.filter(category__icontains=search_term)
-        return image
-    
+    def save_image(self):
+        self.save()
+        
+    @classmethod    
+    def all_images(cls):
+        images = cls.objects.all()
+        return images
+        
     @classmethod
-    def get_images(cls):
-        images = Image.get_image()
-        return image
+    def search_by_category(cls,search_term):
+        images = cls.objects.filter(category=search_term).all()
+        return images
+    
+    def __str__(self):
+        return self.name
+    
 
     
     
