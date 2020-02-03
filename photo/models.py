@@ -48,14 +48,19 @@ class Location(models.Model):
      
     def __str__(self):
         return self.location_name
+class Description(models.Model):
+    editor = models.ForeignKey(Editor)
+    image_description = models.CharField(max_length =30)
     
 class Image(models.Model):
     image = models.ImageField(upload_to = 'images')
     image_name = models.CharField(max_length =30)
-    image_description = models.CharField(max_length =30)
     category = models.ForeignKey(Category) 
     editor = models.ForeignKey(Editor)
     location = models.ForeignKey(Location)
+    image_description = models.ManyToManyField(Description)
+    
+
     
     
     
