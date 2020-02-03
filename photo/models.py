@@ -48,6 +48,7 @@ class Location(models.Model):
      
     def __str__(self):
         return self.location_name
+    
 class Description(models.Model):
     editor = models.ForeignKey(Editor)
     image_description = models.CharField(max_length =30)
@@ -63,6 +64,11 @@ class Image(models.Model):
     
     def search_by_category(cls,search_term):
         image = cls.objects.filter(category__icontains=search_term)
+        return image
+    
+    @classmethod
+    def get_images(cls):
+        images = Image.get_image()
         return image
 
     

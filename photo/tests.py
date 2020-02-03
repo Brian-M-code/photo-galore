@@ -75,6 +75,11 @@ class ImageTestClass(TestCase):
         self.new_image.save_image()
         image = Image.objects.all()
         self.assertTrue(len(images) > 0)
+        
+    def test_get_images(self):
+        images = Image.get_image()
+        image = Image.objects.all()
+        self.assertTrue(len(images)>0)
 
     def test_delete_method(self):
         self.new_image.save_image()
@@ -88,7 +93,7 @@ class ImageTestClass(TestCase):
         image = Image.objects.all()
         self.assertTrue(len(images) == 0)
         
-    def test_get_image_method(self):
+    def test_get_images_method(self):
         self.new_image.save_image()
         self.new_image.get_image()
         image = Image.objects.get(pk='')

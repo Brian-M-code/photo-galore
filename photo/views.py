@@ -9,7 +9,7 @@ def welcome(request):
 
 def photo_today(request):
     date = dt.date.today()
-    photo = photo.
+    images = Image.get_images()
     return render(request, 'all-photo/today-photo.html', {"date": date,"photo":photo})
 
 def convert_dates(dates):
