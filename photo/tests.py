@@ -90,7 +90,21 @@ class ImageTestClass(TestCase):
         
     def test_get_image_method(self):
         self.new_image.save_image()
-        self.new_image.get_image_by_id(id)
-        image = Image.objects.all()
+        self.new_image.get_image()
+        image = Image.objects.get(pk='')
         self.assertTrue(len(images) == 0)
+        
+    def test_search_image_method(self):
+        self.new_image.save_image()
+        self.new_image.search_image()
+        image = Image.objects.filter(category='art')
+        self.assertTrue(len(images) == 0
+                        
+    def test_filter_image_method(self):
+        self.new_image.save_image()
+        self.new_image.filter_image()
+        image = Image.objects.filter(location='nairobi')
+        self.assertTrue(len(images) == 0
+                        
+                    
         
