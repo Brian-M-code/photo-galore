@@ -1,3 +1,22 @@
 h1{
-  color: green;
+  color:green;
+  text-align: center;
+}
+
+.modal-dialog {
+  max-width: 537px !important;
+  margin: 1.75rem auto;
+}
+body{
+  background-image: url('https://image.freepik.com/free-psd/abstract-background-design_1297-73.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Kalam', cursive;
+}
+.code{
+  text-align: center;
+  color:green;
+  padding-top: 50px;
+  font-size: 30px;
+
 }
