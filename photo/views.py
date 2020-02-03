@@ -22,3 +22,16 @@ def convert_dates(dates):
     # Returning the actual day of the week
     day = days[day_number]
     return day
+
+def search_results(request):
+    
+    if 'images' in request.GET and request.GET["image"]:
+        search_term = request.GET.get("category")
+        searched_category = category.search_by_category(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all-photo/search.html',{"message":message,"category": searched_category})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-photo/search.html',{"message":message})
