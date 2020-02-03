@@ -26,9 +26,48 @@ class EditorTestClass(TestCase):
         
 class CategoryTestClass(TestCase):
     def setUp(self):
-        self.category.create
-    
+        # Creating a new editor and saving it
+        self.brian= Editor(first_name = 'brian', last_name ='Mutuma', email ='mutuma@gmail.com')
+        self.brian.save_editor()
+
+        # Creating a new tag and saving it
+        self.new_category = Category(name = 'testing', editor = self.brian)
+        self.new_category.save()
+
+        self.new_location= Location(name = 'Ngong-kenya',editor = self.brian)
+        self.new_location.save()
+
+        self.new_image.category.location.add(self.new_category)
+
+    def tearDown(self):
+        Editor.objects.all().delete()
+        tags.objects.all().delete()
+        Article.objects.all().delete()
+        
+        
 class LocationTestClass(TestCase):
+    def setUp(self):
+        # Creating a new editor and saving it
+        self.brian= Editor(first_name = 'brian', last_name ='Mutuma', email ='mutuma@gmail.com')
+        self.brian.save_editor()
+
+        # Creating a new tag and saving it
+        self.new_location = Location(name = 'nairobi', editor = self.brian)
+        self.new_location.save()
+
+        self.new_image.category.location.add(self.new_location)
+
     
 class ImageTestClass(TestCase):
+    def setUp(self):
+        # Creating a new editor and saving it
+        self.brian= Editor(first_name = 'brian', last_name ='Mutuma', email ='mutuma@gmail.com')
+        self.brian.save_editor()
+
+        # Creating a new tag and saving it
+        self.new_image = Image(name = 'art', editor = self.brian)
+        self.new_image.save()
+
+        self.new_image.category.location.description.add(self.new_image)
+
         
