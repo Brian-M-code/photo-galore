@@ -39,3 +39,6 @@ Copy a link to the photo to share with your friends.
 
 ## For infor on collaboration, follow along the normal procedure and let's get collaborating.
 
+### Livelink
+- https://g-galore.herokuapp.com/
+
