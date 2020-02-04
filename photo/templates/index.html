@@ -5,7 +5,7 @@
 <link href="https://fonts.googleapis.com/css?family=Kalam&display=swap" rel="stylesheet">
 
 <h1 style="color:white"> Welcome to Photo Galore</h1>
-
+<br>
 <div class="container-fluid">
   {% for image in images %}
     <div class="col-md-4">
@@ -30,6 +30,7 @@
           </div>
           <div class="modal-body">
             <img src="{{image.image.url}}" class="img-responsive img-thumbnail" alt="photo">
+            <p>Copy Image</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary">Location:{{image.location}}</button>

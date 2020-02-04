@@ -67,6 +67,7 @@ class Description(models.Model):
     
 class Image(models.Model):
     image = models.ImageField(upload_to = 'images/')
+    headimage = ImageWithThumbsField(upload_to='images/', blank=True, sizes=((200,200),(400,400)))
     image_name = models.CharField(max_length =30)
     category = models.ForeignKey(Category) 
     editor = models.ForeignKey(Editor)
