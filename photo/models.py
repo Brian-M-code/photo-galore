@@ -9,6 +9,7 @@ class Editor(models.Model):
     
     def __str__(self):
         return self.first_name
+    
     class Meta:
         ordering = ['first_name']
         
@@ -34,7 +35,7 @@ class Category(models.Model):
     
     @classmethod
     def find(cls,categ):
-        categs = cls.objects.filter(category__icontains=categ)
+        category = cls.objects.filter(category__icontains=categ)
         return category
         
     @classmethod
@@ -42,7 +43,7 @@ class Category(models.Model):
         cls.objects.filter(category=category).delete()
              
     def __str__(self):
-        return self.category
+        return self.category_name
     
 class Location(models.Model):
     location_name = models.CharField(max_length = 30)
@@ -58,7 +59,7 @@ class Location(models.Model):
     
      
     def __str__(self):
-        return self.location
+        return self.location_name
     
 class Description(models.Model):
     editor = models.ForeignKey(Editor)
@@ -72,22 +73,41 @@ class Image(models.Model):
     location = models.ForeignKey(Location)
     image_description = models.ManyToManyField(Description)
     
+    def __str__(self):
+        return str(self.image)
+    
     
     def save_image(self):
         self.save()
         
+    def get_image(self):
+        self.get_image()
+        
+    def update_image(self):
+        self.update_image()
+        
+    def search_image(self):
+        self.search_image()
+        
+    def filter_image(self):
+        self.filter_image()
+        
+    def delete_image(self):
+        self.delete_image()
+           
     @classmethod    
     def all_images(cls):
         images = cls.objects.all()
         return images
+    
         
     @classmethod
     def search_by_category(cls,search_term):
         images = cls.objects.filter(category=search_term).all()
-        return images
+        return str(image)
     
     def __str__(self):
-        return self.name
+        return str(self.image)
     
 
     

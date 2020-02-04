@@ -7,7 +7,7 @@ from .models import Image, Category
 def index(request):
     images = Image.objects.all()
     categories = Category.get_all_categories()
-    return render (request, 'index.html', {"images":images, "categories":categories  })
+    return render (request, 'index.html', {"images":images, "categories":categories})
 def photo_today(request):
     date = dt.date.today()
     # images = Image.get_images()

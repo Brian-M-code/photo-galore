@@ -6,7 +6,7 @@
 <div class="container">
 
   <!-- Looping through news   -->
-  {% for photo_item in photo %}
+  {% for image_item in images %}
 
   <div class="row">
     <!-- displaying News articles -->
@@ -15,7 +15,7 @@
     </div>
     <!--Display news Article images  -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <img src="{{photo.Image_image.url}}" class="img-responsive" alt="Image">
+        <img src="{{image_image_path.url}}" class="img-responsive" alt="Image">
     </div>
 
   </div>

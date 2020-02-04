@@ -1,6 +1,9 @@
 h1{
-  color:green;
+  color:white;
   text-align: center;
+}
+h2{
+  color: white;
 }
 
 .modal-dialog {
@@ -8,7 +11,7 @@ h1{
   margin: 1.75rem auto;
 }
 body{
-  background-image: url('https://image.freepik.com/free-psd/abstract-background-design_1297-73.jpg');
+  background-image: url('https://images.unsplash.com/photo-1485796826113-174aa68fd81b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
   background-size: cover;
   background-repeat: no-repeat;
   font-family: 'Kalam', cursive;
@@ -18,5 +21,7 @@ body{
   color:green;
   padding-top: 50px;
   font-size: 30px;
-
+}
+p {
+  color:white;
 }

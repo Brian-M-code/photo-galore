@@ -1,4 +1,4 @@
-{%extends 'all-photo/base.html'%} 
+{% extends 'all-photo/base.html'%} 
 {% block content %}
 <div class="container">
 
@@ -17,12 +17,35 @@
     {% for image in images %}
     <div class="col-md-3">
         <div class="card">
-            <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap">
+            <img class="card-img-top" src="{{image.image.url}}" class ='img-responsive' alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title" style="text-align: center"><a>{{ image.name}}</a></h4>
             </div>
         </div>
     </div>
+    <div class="modal fade" id="basicExampleModal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel" style="font-family: 'Itim', cursive;">{{image.name}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" >
+                    <img class="card-img-top " style="height: 150px;" id="img" class="mode" src="{{image.image.url}}" alt="Card image cap">
+                    <p style="font-family: 'Itim', cursive; color: black;">Location: {{image.location}} <br> Category: {{image.category}} <br> Description: {{image.description}}</p>
+            </div>
+            <div class="modal-footer">
+                <input type="text" value="{{image.image.url}}"id={{image.id}}.url>
+                
+              <button type="button" class="btn btn-success" data-dismiss="modal" style="font-family: 'Itim', cursive;">Close</button>
+              </div> 
+            
+          </div>
+        </div>
+      </div>
     {% endfor %}
   {% endif %}
   </div>

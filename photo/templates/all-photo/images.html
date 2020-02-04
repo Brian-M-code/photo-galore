@@ -1,7 +1,9 @@
+{% extends 'all-photo/base.html'%} 
 <div class="container">
-
+<!-- {% if images %} -->
+    {% for image in object_list %}
     <div class="row">
-      <img src="{{image.image_image.url}}"  class="img-responsive" alt="">
+      <img src="{{image.image.url}}"  class="img-responsive" alt="">
     </div>
  
     <div class="row">
@@ -10,10 +12,11 @@
  
     <div class="row">
       <p>{{image.image}}</p>
+        
     </div>
  
     <div class="row">
-      <p> Posted by {{Image.editor.first_name}} and the image is of {{image.category}}</p>
+      <p> Posted by {{Image.editor.first_name}} and the image is of {{Image.category}}</p>
       <p>Description: {{Image.description}} {{Image.location}}</p>
     </div>
  
