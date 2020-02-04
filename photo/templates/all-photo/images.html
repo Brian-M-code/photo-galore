@@ -1,25 +1,33 @@
-{% extends 'all-photo/base.html'%} 
+{% extends 'all-photo/base.html'%}
 <div class="container">
-<!-- {% if images %} -->
-    {% for image in object_list %}
-    <div class="row">
-      <img src="{{image.image.url}}"  class="img-responsive" alt="">
+  <!-- {% if images %} -->
+  {% for image in object_list %}
+  <div class="row">
+    <div class="col-md-4">
+      <img src="{{image.image.url}}" class="img-responsive" alt="">
     </div>
- 
-    <div class="row">
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
       <h1 class="text-center">{{image.name}}</h1>
     </div>
- 
-    <div class="row">
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
       <p>{{image.image}}</p>
-        
+      
     </div>
- 
-    <div class="row">
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
       <p> Posted by {{Image.editor.first_name}} and the image is of {{Image.category}}</p>
       <p>Description: {{Image.description}} {{Image.location}}</p>
     </div>
- 
   </div>
- 
-  {% endblock %}
+
+</div>
+
+{% endblock %}

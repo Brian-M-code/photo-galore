@@ -1,53 +1,55 @@
-{% extends 'all-photo/base.html'%} 
-
+{% extends 'all-photo/base.html' %}
 {% block content %}
-
 {{block.super}}
+
 <link href="https://fonts.googleapis.com/css?family=Kalam&display=swap" rel="stylesheet">
 
-<h1 class="h"> Welcome to Photo Galore</h1>
+<h1 style="color:white"> Welcome to Photo Galore</h1>
 
 <div class="container-fluid">
   {% for image in images %}
-  <div class="modal fade" id="basicExampleModal{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel" style="font-family: 'Itim', cursive;">{{image.name}}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body" >
-                    <img class="card-img-top " style="height: 150px;" id="img" class="mode" src="{{image.image.url}}" alt="Card image cap">
-                    <p style="font-family: 'Itim', cursive; color: black;">Location: {{image.location}} <br> Category: {{image.category}} <br> Description: {{image.description}}</p>
-            </div>
-            <div class="modal-footer">
-                <input type="text" value="{{image.image.url}}"id={{image.id}}.url>
-                
-              <button type="button" class="btn btn-success" data-dismiss="modal" style="font-family: 'Itim', cursive;">Close</button>
-              </div> 
-            
+    <div class="col-md-4">
+      <a></a>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#largeModal-{{image.id}}" data-whatever="">
+        <img src="{{image.image.url}}" class="img-responsive img-thumbnail" alt="photo" data-toggle="modal" data-target="largeModal-{{image.id}}">
+    </button>
+      <h3>{{image.date}}</h3>
+    </div>
+  {% endfor %}
+  <!-- Modal -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  {% for image in images %}
+    <div class="modal fade" id="largeModal-{{image.id}}"  tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg" style="width: 1000px; margin: auto;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel" style="margin: 0 auto;">{{image.title}}</h4>
+          </div>
+          <div class="modal-body">
+            <img src="{{image.image.url}}" class="img-responsive img-thumbnail" alt="photo">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Location:{{image.location}}</button>
+            <button type="button" class="btn btn-success">Category:{{image.category}}</button>
           </div>
         </div>
       </div>
-  <div class="row">
-    <div class="col-md-6">
-        <div class="card" style="width: 18rem;">
-            <img src="{{image.image.url}}" class="card-img-top" data-toggle="modal" data-target="#basicExampleModal{{image.id}}">
-            <div class="card-body">
-              <h5 class="card-title">{{ image.image.name }}</h5>
-              <!-- <a href="#" class="btn btn-primary">View image details</a> -->
-            </div>
-          </div>
-   
-      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">view</button><br> -->
-      <!-- Button trigger modal -->
     </div>
-    {% endfor %}
-  </div>
-  
+  {% endfor %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"
+    integrity="sha256-SiHXR50l06UwJvHhFY4e5vzwq75vEHH+8fFNpkXePr0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"
+    integrity="sha256-EPrkNjGEmCWyazb3A/Epj+W7Qm2pB9vnfXw+X6LImPM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+    integrity="sha256-gL1ibrbVcRIHKlCO5OXOPC/lZz/gpdApgQAzskqqXp8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+    integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+    crossorigin="anonymous"></script>
+
+  {% endblock content %}
 </div>
-<p class='code'>Art is all about simplicity,creativity and innovation</p>
-{% endblock content %}

@@ -11,17 +11,23 @@ h2{
   margin: 1.75rem auto;
 }
 body{
-  background-image: url('https://images.unsplash.com/photo-1485796826113-174aa68fd81b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8LCGM8uMQQ-fW41ViWFzA6vdCnDnaDPpAB86WZoLkEv3VHYgo&s');
   background-size: cover;
   background-repeat: no-repeat;
   font-family: 'Kalam', cursive;
+  
+}
+@media screen and (min-width: 480px) {
+  body {
+    background-color: black;
+  }
 }
 .code{
   text-align: center;
-  color:green;
+  color:white;
   padding-top: 50px;
   font-size: 30px;
 }
-p {
+p{
   color:white;
 }
